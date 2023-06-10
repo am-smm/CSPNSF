@@ -1,5 +1,8 @@
 # Preparação
 
+![let's do this!](https://www.idlememe.com/wp-content/uploads/2021/10/lets-do-this-meme-idlememe-7-300x249.jpg)
+
+
 ## Instalar o Laravel
 ```
 composer create-project laravel/laravel cspnsf.src
@@ -84,4 +87,35 @@ testar com:
 ```
 php artisan serve
 --> http://localhost:8000
+```
+
+---
+
+---
+## Configuração do IDE Helper Generator
+[Github: IDE Helper Generator](https://github.com/barryvdh/laravel-ide-helper)
+```
+composer require --dev barryvdh/laravel-ide-helper
+
+php artisan clear-compiled
+php artisan ide-helper:generate
+
+```
+
+### Atualizar o ficheiro composer.json
+```
+ "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi",
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta"
+        ],
+        ...
+    }
 ```
