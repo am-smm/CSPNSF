@@ -92,7 +92,7 @@ php artisan serve
 ---
 
 ---
-## Configuração do IDE Helper Generator
+## Configuração do package IDE Helper Generator
 [Github: IDE Helper Generator](https://github.com/barryvdh/laravel-ide-helper)
 ```
 composer require --dev barryvdh/laravel-ide-helper
@@ -119,3 +119,31 @@ php artisan ide-helper:generate
         ...
     }
 ```
+
+---
+## Configuração do package Laravel-Modules
+[Github: Laravel-Modules](https://github.com/nWidart/laravel-modules)
+```
+composer require nwidart/laravel-modules
+
+php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider"
+```
+
+### Atualizar o ficheiro composer.json
+```
+ ...
+  "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Modules\\": "Modules/",
+           ...
+         }
+    },
+ ...
+```
+
+
+// to install //
+"barryvdh/laravel-dompdf"
+"intervention/image"
+"spatie/laravel-permission"
