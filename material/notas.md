@@ -97,7 +97,7 @@ php artisan serve
 --> http://localhost:8000
 ```
 
----
+![done!](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlPiQ9PdN727Ae2hByapEZM9him1F92qMr231HGYBxDepKGB2Av6k9PqucTrS9FBDHtXo&usqp=CAU)
 
 ---
 ## Configuração do package laravel-debugbar
