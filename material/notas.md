@@ -1,5 +1,12 @@
 # Preparação
 
+### Requisitos
+
+- PHP >= 8.1
+- Node.js
+- Composer
+
+
 ![let's do this!](https://www.idlememe.com/wp-content/uploads/2021/10/lets-do-this-meme-idlememe-7-300x249.jpg)
 
 
