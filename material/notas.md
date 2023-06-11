@@ -100,6 +100,16 @@ php artisan serve
 ---
 
 ---
+## Configuração do package laravel-debugbar
+[Github: laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
+```
+composer require barryvdh/laravel-debugbar --dev
+
+php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
+
+```
+
+---
 ## Configuração do package IDE Helper Generator
 [Github: IDE Helper Generator](https://github.com/barryvdh/laravel-ide-helper)
 ```
@@ -183,3 +193,21 @@ php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvid
 
 php artisan migrate
 ```
+
+---
+## Outros packages
+[Github: laravel-packages](https://github.com/LaravelDaily/Best-Laravel-Packages)
+
+[Github: laravel-migrations-generator](https://github.com/kitloong/laravel-migrations-generator)
+
+---
+
+[![laravel-form-components live-intro](https://img.youtube.com/vi/7eNZS4U7xyM/0.jpg)](https://www.youtube.com/live/7eNZS4U7xyM?feature=share)
+[Github: laravel-form-components](https://github.com/protonemedia/laravel-form-components)
+
+---
+
+[![SPLADE intro](https://img.youtube.com/vi/9V9BUHtvwXI/0.jpg)](https://youtu.be/9V9BUHtvwXI)
+[Github: laravel-splade](https://github.com/protonemedia/laravel-splade)
+
+[splade.dev](https://splade.dev/)
