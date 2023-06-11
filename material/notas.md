@@ -18,6 +18,7 @@ composer create-project laravel/laravel cspnsf.src
 
 ## Teste da instalação
 ```
+# na pasta cspnsf.src
 php artisan serve
 ```
 
@@ -136,6 +137,11 @@ composer require nwidart/laravel-modules
 php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider"
 ```
 
+### criar a pasta Modules na diretoria cspnsf.src
+```
+mkdir ./Modules
+```
+
 ### Atualizar o ficheiro composer.json
 ```
  ...
@@ -174,4 +180,6 @@ php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
 composer require spatie/laravel-permission
 
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+
+php artisan migrate
 ```
