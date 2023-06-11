@@ -142,8 +142,29 @@ php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProv
  ...
 ```
 
+---
+## Configuração do package intervention/image
+[intervention/image V2](https://image.intervention.io/v2)
+```
+composer require intervention/image
 
-// to install //
-"barryvdh/laravel-dompdf"
-"intervention/image"
-"spatie/laravel-permission"
+php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
+```
+
+---
+## Configuração do package DOMPDF
+[Github: DOMPDF](https://github.com/barryvdh/laravel-dompdf)
+```
+composer require barryvdh/laravel-dompdf
+
+php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
+```
+
+---
+## Configuração do package laravel-permission
+[Github: laravel-permission V5](https://spatie.be/docs/laravel-permission/v5/introduction)
+```
+composer require spatie/laravel-permission
+
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+```
