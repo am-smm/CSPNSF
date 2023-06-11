@@ -10,7 +10,7 @@
 ![let's do this!](https://www.idlememe.com/wp-content/uploads/2021/10/lets-do-this-meme-idlememe-7-300x249.jpg)
 
 
-## Instalar o Laravel
+## Instalar o Laravel (na pasta webroot— htdocs, www, ou outra...)
 ```
 composer create-project laravel/laravel cspnsf.src
 ```
