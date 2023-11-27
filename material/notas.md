@@ -196,6 +196,9 @@ php artisan migrate
 
 ---
 ## Outros packages
+
+[Github: laravel-migrations-generator —gerador de migrações com base numa base de dados—](https://github.com/kitloong/laravel-migrations-generator)
+
 [Github: laravel-packages](https://github.com/LaravelDaily/Best-Laravel-Packages)
 
 [Github: laravel-migrations-generator](https://github.com/kitloong/laravel-migrations-generator)
