@@ -167,6 +167,11 @@ mkdir ./Modules
 
 ---
 ## Configuração do package intervention/image
+[gerador de migrações com base numa base de dados](https://github.com/kitloong/laravel-migrations-generator)
+
+
+---
+## Configuração do package intervention/image
 [intervention/image V2](https://image.intervention.io/v2)
 ```
 composer require intervention/image
