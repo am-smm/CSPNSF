@@ -594,6 +594,7 @@ CREATE TABLE `falta` (
                          `id` bigint unsigned NOT NULL AUTO_INCREMENT,
                          `inscricao_id` bigint unsigned NOT NULL,
                          `data` date DEFAULT NULL,
+                         `ano_letivo` INT UNSIGNED NOT NULL DEFAULT 2023,
                          `tipo_falta` tinyint unsigned NOT NULL DEFAULT '0',
                          `justificacao` TEXT  DEFAULT NULL,
                          `marcada_por_user_id` bigint unsigned NOT NULL,
@@ -611,17 +612,22 @@ CREATE TABLE `falta` (
 ALTER TABLE `config`
     ADD COLUMN `ano_letivo_atual` INT UNSIGNED NOT NULL DEFAULT 2023 AFTER `updated_at`,
     ADD COLUMN `horizonte_faltas` TINYINT UNSIGNED NOT NULL DEFAULT 3 AFTER `ano_letivo_atual`,
-    ADD COLUMN `horizonte_rd` TINYINT UNSIGNED NOT NULL DEFAULT 3 AFTER `horizonte_faltas`;
+    ADD COLUMN `horizonte_rd` TINYINT UNSIGNED NOT NULL DEFAULT 3 AFTER `horizonte_faltas`,
+    ADD COLUMN `horizonte_desinfecao` TINYINT UNSIGNED NOT NULL DEFAULT 3 AFTER `horizonte_rd`;
 
 
 ALTER TABLE `inscricao`
     ADD COLUMN `is_necessario_apoio_comer` TINYINT UNSIGNED NOT NULL DEFAULT 0 AFTER `apoio_especial`;
+
+ALTER TABLE `users`
+    ADD COLUMN `short_name` varchar(255)  NOT NULL DEFAULT '' AFTER `name`;
 
 
 CREATE TABLE `rd` (
                          `id` bigint unsigned NOT NULL AUTO_INCREMENT,
                          `inscricao_id` bigint unsigned NOT NULL,
                          `data` date DEFAULT NULL,
+                         `ano_letivo` INT UNSIGNED NOT NULL DEFAULT 2023,
                          -- 0, 1, 2
                          `tipo_descanso` tinyint unsigned NOT NULL DEFAULT '0',
                          `tipo_almoco` tinyint unsigned NOT NULL DEFAULT '0',
@@ -637,3 +643,30 @@ CREATE TABLE `rd` (
                          CONSTRAINT `fk_rd_marcada_por_user_id` FOREIGN KEY (`reg_por_user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+
+CREATE TABLE `material` (
+                         `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+                         `nome` varchar(255) NOT NULL DEFAULT '',
+                         `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+                         `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                         PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE `desinfecao` (
+                      `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+                      `material_id` bigint unsigned NOT NULL,
+                      `data` date DEFAULT NULL,
+                      `ano_letivo` INT UNSIGNED NOT NULL DEFAULT 2023,
+                      sala         tinyint unsigned    default 0,
+                      qtd         tinyint unsigned    default 0,
+                      obs        text   default null,
+                      `reg_por_user_id` bigint unsigned NOT NULL,
+                      `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+                      `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                      PRIMARY KEY (`id`),
+                      KEY `desinfecao_material_id_idx` (`material_id`),
+                      KEY `desinfecao_reg_por_user_idx` (`reg_por_user_id`),
+                      CONSTRAINT `fk_desinfecao_material_id` FOREIGN KEY (`material_id`) REFERENCES `material` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                      CONSTRAINT `fk_desinfecao_reg_por_user_id` FOREIGN KEY (`reg_por_user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
