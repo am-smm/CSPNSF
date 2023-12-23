@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamp('deactivated_at')->nullable();
             $table->string('avatar');
             $table->string('name');
+            $table->string('short_name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
